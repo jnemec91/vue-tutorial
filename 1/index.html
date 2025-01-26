@@ -23,6 +23,11 @@
         .bold{
             font-weight: bold;
         }
+        .book-image{
+            width: 20px;
+            height: 20px;
+            display: inline;
+        }
     </style>
 </head>
 <body>
@@ -67,9 +72,16 @@
         <!-- <p>{{ books[0].author }} - {{ books[0].author }}</p> -->
          <ul v-for="b in books">
             <li>
-                <p><span class="bold">{{b.title}}</span> - {{b.author}}</p>
+                <p>
+                    <img :src="b.image" class="book-image" alt="{{b.title}}">
+                    <span class="bold">{{b.title}}</span> - {{b.author}}
+                </p>
             </li>
          </ul>
+        <hr>
+        <h2>Attribute binding</h2>
+        <!-- you can use longer v-bind:attribute, but shorthand is so much better -->
+        <a target="_blank" :href="url">Best website ever</a>
 
         
 

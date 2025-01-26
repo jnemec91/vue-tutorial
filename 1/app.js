@@ -11,10 +11,11 @@ const app = Vue.createApp({
             x: 0,
             y: 0,
             books: [
-                {title:'Metro 2033', author:'Dmitrij Gluchovskij'},
-                {title:'Witcher', author:'Andrzej Sapkowski'},
-                {title:'The Martian', author:'Andy Weir'},
-            ]
+                {title:'Metro 2033', author:'Dmitrij Gluchovskij', image:'./assets/1.jpg'},
+                {title:'Witcher', author:'Andrzej Sapkowski', image:'./assets/2.jpg'}, 
+                {title:'The Martian', author:'Andy Weir', image:'./assets/3.jpg'},
+            ],
+            url: 'https://jnemec91.github.io',
         }
     },
     methods: {
@@ -25,8 +26,6 @@ const app = Vue.createApp({
             this.showBooks = !this.showBooks
         },
         handleEvents(e) {
-            console.log(e)
-            console.log(e.type)
             switch (e.type){
                 case 'mouseover':
                     e.srcElement.style.background = 'red'
