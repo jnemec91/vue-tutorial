@@ -5,11 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue 1</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        hr{
+            width: 90vw;
+            height: 4px;
+            background-color: black;
+        }
+        .box{
+            padding: 100px, 0;
+            width: 400px;
+            height: 100px;
+            text-align: center;
+            background-color: #888;
+            margin: 20px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
     <h1>Hello, Vue</h1>
-    
+    <hr>
     <div id="app">
+        <h2>Basics</h2>
         <div v-if="showBooks">
             <p>{{title}} - {{author}} - {{nationality}}: {{price}}$</p>
             <button v-on:click="price++">+</button>
@@ -32,6 +49,16 @@
              not met. -->
             <h2>Currently showing books</h2>
         </div>
+        <hr>
+        <h2>Mouse events</h2>
+        <!-- if you pass any arguments, you need to pass special $event object
+         to the function, if you just put the name of function here, event is
+         passed automaticaly -->
+        <div class="box" @mouseover="handleEvents($event)">mouseover</div>
+        <div class="box" @mouseleave="handleEvents">mouseleave</div>
+        <div class="box" @dblclick="handleEvents">double click</div>
+        <div class="box" @mousemove="handleMouseMove">The mouse is at: {{x}},{{y}}</div>
+        
 
     </div>
     <script src="app.js"></script>

@@ -7,7 +7,9 @@ const app = Vue.createApp({
             title: 'The Lord of the Rings',
             author: 'J.R.R. Tolkien',
             nationality: 'UK',
-            price: 1
+            price: 1,
+            x: 0,
+            y: 0,
         }
     },
     methods: {
@@ -16,6 +18,13 @@ const app = Vue.createApp({
         },
         toggleBooks() {
             this.showBooks = !this.showBooks
+        },
+        handleEvents(e) {
+            console.log(e.type)
+        },
+        handleMouseMove(e){
+            this.x = e.offsetX
+            this.y = e.offsetY
         }
     }
 })
