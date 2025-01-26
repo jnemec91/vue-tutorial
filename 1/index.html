@@ -10,14 +10,29 @@
     <h1>Hello, Vue</h1>
     
     <div id="app">
-        <p>{{title}} - {{author}} - {{nationality}}: {{price}}$</p>
-        <button v-on:click="price++">+</button>
-        <button v-on:click="price--">-</button>
-        <div
-            style="width: 20px; height: 20px; background-color: crimson;"
-            @click="changeTitle('Silmarllion');">
-
+        <div v-if="showBooks">
+            <p>{{title}} - {{author}} - {{nationality}}: {{price}}$</p>
+            <button v-on:click="price++">+</button>
+            <button v-on:click="price--">-</button>
+            <div
+                style="width: 20px; height: 20px; background-color: crimson;"
+                @click="changeTitle('Silmarllion');">
+    
+            </div>
         </div>
+        <div v-if="showBooks">
+            <h2 style="color:red;" @click="toggleBooks">Toggle books</h2>
+        </div>
+        <div v-else>
+            <h2 style="color:green;" @click="toggleBooks">Toggle books</h2>
+        </div>
+        <div v-show="showBooks">
+            <!-- not as time expensive, because items in v-show directive stay in dom,
+             not like a items in v-if, that are deleted from dom when the condition is 
+             not met. -->
+            <h2>Currently showing books</h2>
+        </div>
+
     </div>
     <script src="app.js"></script>
 </body>
