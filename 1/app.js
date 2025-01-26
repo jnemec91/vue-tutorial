@@ -8,6 +8,11 @@ const app = Vue.createApp({
             nationality: 'UK',
             price: 1
         }
+    },
+    methods: {
+        changeTitle(value) {
+            this.title = value
+        }
     }
 })
 
