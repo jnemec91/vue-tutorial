@@ -113,7 +113,17 @@
             <li>Attach an click event to book</li>
             <li>When user clicks a book, toggle isFav property of that book</li>
         </ul>
-
+        <hr>
+        <h2>Comupted properties</h2>
+        <p>Following list shows only favorite books</p>
+        <ul v-for="b in filteredBooks">
+            <li>
+                <p>
+                    <img :src="b.image" class="book-image" alt="{{b.title}}">
+                    <span class="bold">{{b.title}}</span> - {{b.author}}
+                </p>
+            </li>
+         </ul>
     </div>
     <script src="app.js"></script>
 </body>
