@@ -41,6 +41,7 @@
             margin-left: 10px;
             border: 1px solid transparent;
             border-radius: 20px;
+            cursor: pointer;
         }
         li > p.fav{
             background-color: pink;
@@ -89,9 +90,10 @@
         <!-- <p>{{ books[0].author }} - {{ books[0].author }}</p> -->
          <ul v-for="b in books">
             <li>
-                <p :class="{
-                    fav: b.isFav
-                }">
+                <p
+                :class="{fav: b.isFav}"
+                @click="toggleFav(b)"
+                >
                     <img :src="b.image" class="book-image" alt="{{b.title}}">
                     <span class="bold">{{b.title}}</span> - {{b.author}}
                 </p>
@@ -106,8 +108,11 @@
         <!-- use attributte binding to conditionaly add classes to html as seen in
           books example. <p :class="{fav: b.isFav}"> like this -->
         <hr>
-        
-        
+        <h2>Challenge: add book to the favs</h2>
+        <ul>
+            <li>Attach an click event to book</li>
+            <li>When user clicks a book, toggle isFav property of that book</li>
+        </ul>
 
     </div>
     <script src="app.js"></script>

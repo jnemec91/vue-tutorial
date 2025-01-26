@@ -12,18 +12,21 @@ const app = Vue.createApp({
             y: 0,
             books: [
                 {
+                    id:1,
                     title:'Metro 2033',
                     author:'Dmitrij Gluchovskij',
                     image:'./assets/1.jpg',
                     isFav: true,
                 },
                 {
+                    id:2,
                     title:'The Witcher', 
                     author:'Andrzej Sapkowski', 
                     image:'./assets/2.jpg',
                     isFav: false,                    
                 }, 
                 {
+                    id:3,
                     title:'The Martian', 
                     author:'Andy Weir', 
                     image:'./assets/3.jpg',
@@ -53,9 +56,12 @@ const app = Vue.createApp({
                     break
             }
         },
-        handleMouseMove(e){
+        handleMouseMove(e) {
             this.x = e.offsetX
             this.y = e.offsetY
+        },
+        toggleFav(book) {
+            book.isFav = !book.isFav
         }
     }
 })
