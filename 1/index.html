@@ -20,6 +20,9 @@
             margin: 20px;
             display: inline-block;
         }
+        .bold{
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -58,6 +61,16 @@
         <div class="box" @mouseleave="handleEvents">mouseleave</div>
         <div class="box" @dblclick="handleEvents">double click</div>
         <div class="box" @mousemove="handleMouseMove">The mouse is at: {{x}},{{y}}</div>
+        <hr>
+        <h2>Outputing arrays</h2>
+        <!-- this works, but you want to do it with cycle -->
+        <!-- <p>{{ books[0].author }} - {{ books[0].author }}</p> -->
+         <ul v-for="b in books">
+            <li>
+                <p><span class="bold">{{b.title}}</span> - {{b.author}}</p>
+            </li>
+         </ul>
+
         
 
     </div>
