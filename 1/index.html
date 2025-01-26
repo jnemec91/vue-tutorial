@@ -27,7 +27,24 @@
             width: 20px;
             height: 20px;
             display: inline;
+            margin: 0;
+            padding: 0;
+            transform: translateY(2px);
+            border-radius: 50%;
         }
+        ul, li{
+            list-style: none;
+            width: 90vw;
+            height: 14px;
+        }
+        li > p{
+            margin-left: 10px;
+            border: 1px solid transparent;
+            border-radius: 20px;
+        }
+        li > p.fav{
+            background-color: pink;
+        }        
     </style>
 </head>
 <body>
@@ -72,7 +89,9 @@
         <!-- <p>{{ books[0].author }} - {{ books[0].author }}</p> -->
          <ul v-for="b in books">
             <li>
-                <p>
+                <p :class="{
+                    fav: b.isFav
+                }">
                     <img :src="b.image" class="book-image" alt="{{b.title}}">
                     <span class="bold">{{b.title}}</span> - {{b.author}}
                 </p>
@@ -82,7 +101,12 @@
         <h2>Attribute binding</h2>
         <!-- you can use longer v-bind:attribute, but shorthand is so much better -->
         <a target="_blank" :href="url">Best website ever</a>
-
+         <hr>
+        <h2>Conditional classes</h2>
+        <!-- use attributte binding to conditionaly add classes to html as seen in
+          books example. <p :class="{fav: b.isFav}"> like this -->
+        <hr>
+        
         
 
     </div>

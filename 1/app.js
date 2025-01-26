@@ -11,9 +11,24 @@ const app = Vue.createApp({
             x: 0,
             y: 0,
             books: [
-                {title:'Metro 2033', author:'Dmitrij Gluchovskij', image:'./assets/1.jpg'},
-                {title:'Witcher', author:'Andrzej Sapkowski', image:'./assets/2.jpg'}, 
-                {title:'The Martian', author:'Andy Weir', image:'./assets/3.jpg'},
+                {
+                    title:'Metro 2033',
+                    author:'Dmitrij Gluchovskij',
+                    image:'./assets/1.jpg',
+                    isFav: true,
+                },
+                {
+                    title:'The Witcher', 
+                    author:'Andrzej Sapkowski', 
+                    image:'./assets/2.jpg',
+                    isFav: false,                    
+                }, 
+                {
+                    title:'The Martian', 
+                    author:'Andy Weir', 
+                    image:'./assets/3.jpg',
+                    isFav: false,                    
+                },
             ],
             url: 'https://jnemec91.github.io',
         }
