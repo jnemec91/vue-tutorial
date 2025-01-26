@@ -5,7 +5,8 @@ const app = Vue.createApp({
         return {
             title: 'The Lord of the Rings',
             author: 'J.R.R. Tolkien',
-            nationality: 'UK'
+            nationality: 'UK',
+            price: 1
         }
     }
 })
