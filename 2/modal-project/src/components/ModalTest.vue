@@ -1,7 +1,8 @@
 <template>
   <div class="backdrop hidden">
     <div class="modal hidden">
-        <h2>This is a modal</h2>
+        <h1>This is a modal</h1>
+        <hr>
         <p>Modal content</p>
     </div>
   </div>
@@ -11,7 +12,7 @@
 
 </script>
 
-<style>
+<style scoped>
   .modal{
     width: 400px;
     height: 300px;
@@ -30,9 +31,12 @@
     position: fixed;
     top: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.7);
   }
   .hidden{
-    display: none;
+    /* display: none; */
+  }
+  .modal h1{
+    color: blue;
   }
 </style>
