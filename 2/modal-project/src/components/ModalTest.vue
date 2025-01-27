@@ -1,15 +1,35 @@
 <template>
-  <div class="backdrop hidden">
-    <div class="modal hidden">
-        <h1>This is a modal</h1>
-        <hr>
-        <p>Modal content</p>
+  <div class="backdrop" @click="closeModal">
+    <div class="modal" :class="{sale : theme === 'sale'}">
+        <h1>{{header}}</h1>
+        <p>{{text}}</p>
     </div>
   </div>
 </template>
 
 <script>
-
+  export default {
+    name: 'ModalTest',
+    // props: ['header', 'text', 'theme'],
+    props: {
+      header: {
+        type: String,
+        required: true
+      },
+      text: {
+        type: String,
+        required: true
+      },
+      theme: {
+        type: String,
+      }
+    },
+    methods: {
+      closeModal(){
+        this.$emit('close-modal')
+      }
+    }
+  }
 </script>
 
 <style scoped>
@@ -33,10 +53,10 @@
     right: 0;
     background: rgba(0, 0, 0, 0.7);
   }
-  .hidden{
-    /* display: none; */
-  }
   .modal h1{
     color: blue;
+  }
+  .sale{
+    background-color: red;
   }
 </style>
