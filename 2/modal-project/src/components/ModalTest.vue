@@ -12,6 +12,12 @@
 <script>
   export default {
     name: 'ModalTest',
+    props: {
+      theme: {
+        type:String,
+        required: false
+      }
+    },
     methods: {
       closeModal(){
         this.$emit('close-modal')
@@ -45,6 +51,6 @@
     color: blue;
   }
   .sale{
-    background-color: red;
+    background-color: orangered;
   }
 </style>

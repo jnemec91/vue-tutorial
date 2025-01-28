@@ -4,8 +4,8 @@
   <br>
   <!-- <input type="text" ref="name">
   <button @click="handleClick">click me</button> -->
-  <div v-if="showModal">
-    <ModalTest @close-modal="toggleModal">
+  <teleport to=".modals" v-if="showModal">
+    <ModalTest @close-modal="toggleModal" theme="sale">
       <template v-slot:links>
         <p>This is a named slot</p>
         <a href="https://github.com/jnemec91">Github</a><br>
@@ -14,13 +14,13 @@
       <h1>This is a slot</h1>
       <p>This is also a slot</p>
     </ModalTest>
-  </div>
-  <br>
-  <button @click="toggleModal">Open Modal</button>
+  </teleport>
+
+
   <hr>
   <h2>Challenge: create another modal</h2>
-  <div v-if="showModalTwo">
-    <ModalTest @close-modal="toggleModalTwo">
+  <teleport to=".modals" v-if="showModalTwo">
+    <ModalTest @close-modal="toggleModalTwo" theme="default">
       <template v-slot:links>
         <p>This is my challenge modal</p>
         <p>This is my challenge modal content</p>
@@ -30,7 +30,10 @@
         <h2>This is my challenge modal unnamed slot</h2>
       </slot>
     </ModalTest>
-  </div>
+  </teleport>
+
+  <br>
+  <button @click="toggleModal">Open Modal</button>  
   <br>
   <button @click="toggleModalTwo">Toggle challenge modal</button>
 </template>
