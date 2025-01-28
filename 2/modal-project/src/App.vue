@@ -11,12 +11,28 @@
         <a href="https://github.com/jnemec91">Github</a><br>
         <a href="https://jnemec91.github.io/#contact">Contact</a>
       </template>
-      <!-- <h1>This is a slot</h1>
-      <p>This is also a slot</p> -->
+      <h1>This is a slot</h1>
+      <p>This is also a slot</p>
     </ModalTest>
   </div>
   <br>
   <button @click="toggleModal">Open Modal</button>
+  <hr>
+  <h2>Challenge: create another modal</h2>
+  <div v-if="showModalTwo">
+    <ModalTest @close-modal="toggleModalTwo">
+      <template v-slot:links>
+        <p>This is my challenge modal</p>
+        <p>This is my challenge modal content</p>
+        <hr>
+      </template>
+      <slot>
+        <h2>This is my challenge modal unnamed slot</h2>
+      </slot>
+    </ModalTest>
+  </div>
+  <br>
+  <button @click="toggleModalTwo">Toggle challenge modal</button>
 </template>
 
 <script>
@@ -34,6 +50,7 @@ export default {
       header: 'This is a header',
       text: 'This is a really nice marketing text!',
       showModal: false,
+      showModalTwo: false,
     }
   },
   methods: {
@@ -44,6 +61,9 @@ export default {
     },
     toggleModal() {
       this.showModal = !this.showModal
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo
     }
   },
 }

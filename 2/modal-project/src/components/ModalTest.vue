@@ -12,12 +12,11 @@
 <script>
   export default {
     name: 'ModalTest',
-
     methods: {
       closeModal(){
         this.$emit('close-modal')
       }
-    }
+    },
   }
 </script>
 
