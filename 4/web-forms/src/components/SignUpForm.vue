@@ -11,34 +11,24 @@
             <option value="designer">Web designer</option>
         </select>
 
-        <h2>Checkboxes</h2>
+        <label>Skils</label>
+        <input type="text" v-model="tempSkill" @keyup.alt="addSkill">
+
         <div class="terms">
           <input type="checkbox" v-model="terms" required>
           <label>Accept terms and conditions</label>
         </div>
-        
-        <h2>Grouping v-models</h2>
-        <div>
-          <input type="checkbox" value="Jarda" v-model="names">
-          <label>Jarda</label>
-        </div>
-
-        <div>
-          <input type="checkbox" value="Pepa" v-model="names">
-          <label>Pepa</label>
-        </div>        
-
-        <div>
-          <input type="checkbox" value="Honza" v-model="names">
-          <label>Honza</label>
-        </div>  
 
     </form>
+    <h2>Info</h2>
     <p>Email: {{email }}</p>
     <p>Password: {{ password }}</p>
     <p>Role: {{role}}</p>
     <p>Accepted terms: {{ terms }}</p>
-    <p>Selected names: {{ names }}</p>
+    <h2>Skills</h2>
+    <div v-for="skill in skills" :key="skill" class="pill">
+      <p>{{ skill }}</p>
+    </div>
 </template>
 
 <script>
@@ -50,9 +40,20 @@ export default {
       password: '',
       role: 'developer',
       terms: false,
-      names: []
+      tempSkill: '',
+      skills: []
     }
-  }    
+  },
+  methods: {
+      addSkill(e){
+        if (e.key === ',' && this.tempSkill){
+          if (!this.skills.includes(this.tempSkill)){
+            this.skills.push(this.tempSkill)
+            this.tempSkill = ''
+          }
+        }
+      }
+    }      
 }
 </script>
 
