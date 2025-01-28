@@ -1,8 +1,10 @@
 <template>
   <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{sale : theme === 'sale'}">
-        <h1>{{header}}</h1>
-        <p>{{text}}</p>
+      <slot></slot>
+      <div class="actions">
+        <slot name="links">default content</slot>
+      </div>
     </div>
   </div>
 </template>
@@ -10,20 +12,7 @@
 <script>
   export default {
     name: 'ModalTest',
-    // props: ['header', 'text', 'theme'],
-    props: {
-      header: {
-        type: String,
-        required: true
-      },
-      text: {
-        type: String,
-        required: true
-      },
-      theme: {
-        type: String,
-      }
-    },
+
     methods: {
       closeModal(){
         this.$emit('close-modal')

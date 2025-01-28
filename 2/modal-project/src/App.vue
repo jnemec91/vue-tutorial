@@ -5,11 +5,15 @@
   <!-- <input type="text" ref="name">
   <button @click="handleClick">click me</button> -->
   <div v-if="showModal">
-    <ModalTest
-    :header=header
-    :text=text
-    theme="nope"
-    @close-modal="toggleModal"/>
+    <ModalTest @close-modal="toggleModal">
+      <template v-slot:links>
+        <p>This is a named slot</p>
+        <a href="https://github.com/jnemec91">Github</a><br>
+        <a href="https://jnemec91.github.io/#contact">Contact</a>
+      </template>
+      <!-- <h1>This is a slot</h1>
+      <p>This is also a slot</p> -->
+    </ModalTest>
   </div>
   <br>
   <button @click="toggleModal">Open Modal</button>
