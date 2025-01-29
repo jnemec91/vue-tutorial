@@ -12,12 +12,14 @@ export default {
   name: 'JobListView',
   data () {
     return {
-      jobs: [
-        { title: 'designer', id: 1, details: 'lorem' },
-        { title: 'developer', id: 2, details: 'lorem' },
-        { title: 'administrator', id: 3, details: 'lorem' }
-      ]
+      jobs: []
     }
+  },
+  mounted () {
+    fetch('http://localhost:3000/jobs')
+      .then(response => response.json())
+      .then(data => this.jobs = data)
+      .catch(err => console.log(err.message))
   }
 }
 

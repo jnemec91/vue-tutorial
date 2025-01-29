@@ -2,7 +2,10 @@
     "jobs": [
         { "title": "designer", "id": 1, "details": "lorem" },
         { "title": "developer", "id": 2, "details": "lorem" },
-        { "title": "administrator", "id": 3, "details": "lorem" }
+        { "title": "administrator", "id": 3, "details": "lorem" },
+        { "title": "technician", "id": 4, "details": "lorem" },
+        { "title": "secretary", "id": 5, "details": "lorem" },
+        { "title": "ceo", "id": 6, "details": "lorem" }        
     ],
     "blogs":[]
 }
