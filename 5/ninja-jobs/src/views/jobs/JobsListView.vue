@@ -1,6 +1,6 @@
 /* eslint-disable */
 <template>
-    <h1>jobs</h1>
+    <h2>Jobs</h2>
     <div class="job" v-for="job in jobs" :key="job.id">
       <router-link :to="{ name: 'JobDetails', params: { id:job.id }}"><h2>{{ job.id }}:{{ job.title }}</h2></router-link>
     </div>

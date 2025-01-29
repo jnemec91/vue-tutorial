@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores hic cum eaque deserunt sint cupiditate nam numquam sit dolores, eum voluptate rerum praesentium voluptates incidunt tenetur. Beatae eveniet nihil dolores.</p>
-
+    <h2>Homepage</h2>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eos fuga molestias quibusdam modi odit dolore provident esse quos ducimus ut est ea sint ratione unde maiores expedita, nam fugit.</p>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt natus nemo porro architecto necessitatibus expedita maxime at enim temporibus magni. Sequi perspiciatis pariatur quaerat libero nihil excepturi deserunt dicta ea.</p>
   </div>
 </template>
 
