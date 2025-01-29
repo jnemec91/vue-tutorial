@@ -2,7 +2,8 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <!-- paths also can be used with names  -->
-    <router-link :to="{ name:'about' }">About</router-link>
+    <router-link :to="{ name:'about' }">About</router-link> |
+    <router-link :to="{ name: 'jobs' }">Jobs</router-link>
   </nav>
   <router-view/>
 </template>
