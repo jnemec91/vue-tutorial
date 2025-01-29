@@ -1,37 +1,46 @@
 <template>
   <div class="home">
-    <h2 @click="handleClick">Home</h2>
-    <p ref="p">My name {{ name }} and my age is {{ age }}</p>
+    <h2>Home</h2>
+    <h3>Refs</h3>
+    <p>{{ person.name }} - {{ person.age }}</p>
+    <button @click="updatePerson">Update person</button>
+    <h3>Reactive</h3>
+    <p>{{ another.name }} - {{ another.age }}</p>
+    <button @click="updateAnotherPerson">Update another person</button>
   </div>
-  <input type="text" v-model="name">
-  <button @click="age++">Age++</button>
+
 </template>
 
 <script>
 // @ is an alias to /src
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 
 export default {
   name: 'HomeView',
   setup() {
-    const p = ref(null)
-    console.log(p, p.value)
+    // safer to use, still remain reactive after getting exposed to external funcs
+    const person = ref({
+      name: 'Jarda',
+      age: 33
+    })
 
-    console.log('setup')
-    // ref makes variable reactive (vue reacts to their change and updates dom)
-    let name = ref('jarda')
-    let age = ref(33)
+    // reactive isnt reactive with primitive values (lol wtf), but at least you dont need to \
+    // type .value when accessing the data.
+    const another = reactive({
+      name: 'Honza',
+      age: 33
+    })
 
-    // when assigning to the refs, use .value
-    age.value += 1
-
-    const handleClick = () => {
-      console.log(p, p.value)
-      p.value.textContent = 'Button clicked'
+    const updatePerson = () => {
+      person.value.age++
     }
 
+    const updateAnotherPerson = () => {
+      another.age++
+    }    
+
     return {
-      name, age, handleClick, p
+      person, updatePerson, another, updateAnotherPerson
     }
   },
 }
