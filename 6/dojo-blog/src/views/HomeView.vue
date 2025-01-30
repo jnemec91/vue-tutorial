@@ -22,38 +22,18 @@
 <script>
 // @ is an alias to /src
 import { ref } from "vue";
+import getPosts from "@/composables/getPosts.js";
 import PostList from '@/components/PostList.vue'
 
 export default {
   name: 'HomeView',
   components: {PostList},
   setup() {
-    const posts = ref([])
+
     const showPosts = ref(true)
-    const error = ref(null)
+    const { posts, error, load } = getPosts()
 
-    // fetch('http://localhost:3000/posts')
-    // .then(response => response.json())
-    // .then(data => posts.value = data)
-    // .catch(err => alert(err))
-
-    // loading with async / await
-    const load = async () => {
-      try {
-        let data = await fetch('http://localhost:3000/posts')
-        if (!data.ok) {
-          throw Error('No data available')
-        }
-        posts.value = await data.json() // this is also asynchronous
-
-        return data
-      }
-      catch (err){
-        error.value = err.message
-        alert(error.value)
-      }
-    }
-    posts.value = load()
+    load('http://localhost:3000/posts')
 
     return {
       posts, showPosts, error
