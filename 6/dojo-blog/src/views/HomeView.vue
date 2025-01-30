@@ -33,7 +33,7 @@ export default {
     const showPosts = ref(true)
     const { posts, error, load } = getPosts()
 
-    load('http://localhost:3000/posts')
+    load()
 
     return {
       posts, showPosts, error
